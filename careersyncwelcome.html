@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Explorer</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+  .button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  .button:hover {
+    background-color: #45a049;
+  }
+  .questionnaire {
+    display: none;
+    margin: 20px;
+  }
+  .progress-bar {
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    position: relative;
+  }
+  .progress-bar span {
+    display: block;
+    height: 100%;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    width: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Career Explorer</h1>
+    <button class="button" onclick="startQuestionnaire()">Start Questionnaire</button>
+    
+    <div class="questionnaire">
+      <h2>Questionnaire</h2>
+      <div class="progress-bar"><span id="progress"></span></div>
+      <button class="button" onclick="nextQuestion()">Next Question</button>
+    </div>
+  </div>
+
+  <script>
+    let progress = 0;
+    
+    function startQuestionnaire() {
+      document.querySelector('.questionnaire').style.display = 'block';
+      updateProgress();
+    }
+
+    function nextQuestion() {
+      if (progress < 100) {
+        progress += 10; // Example increment
+        updateProgress();
+      }
+    }
+
+    function updateProgress() {
+      document.getElementById('progress').style.width = progress + '%';
+    }
+  </script>
+</body>
+</html>
