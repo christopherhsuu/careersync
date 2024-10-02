@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"></script>
+
+    
+        <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAtNR8UntbtbCWiG1uoRUXXWzEYxeHnq1o",
+            authDomain: "careersync-8afad.firebaseapp.com",
+            projectId: "careersync-8afad",
+            storageBucket: "careersync-8afad.appspot.com",
+            messagingSenderId: "351099396161",
+            appId: "1:351099396161:web:ca92c325700f949ab7a6c0",
+            measurementId: "G-NV4G79220T"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Function to handle login
+        function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            auth.signInWithEmailAndPassword(email, password)
+                .then(() => {
+                    alert('Login successful!');
+                    window.location.href = 'index.html'; // Redirect to the homepage
+                })
+                .catch((error) => {
+                    alert('Error: ' + error.message);
+                });
+        }
+
+        // Check if user is logged in
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                // User is signed in, redirect to homepage
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Login</h1>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+</body>
+</html>
 
