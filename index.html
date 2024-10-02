@@ -23,24 +23,19 @@
         const app = firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
 
-        // Wait for the page to fully load before checking auth state
-        window.onload = function() {
-            // Check if user is logged in
-            firebase.auth().onAuthStateChanged(user => {
-                const accountLink = document.querySelector('.account-link');
-
-                accountLink.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (user) {
-                        // User is signed in, allow access to account page
-                        window.location.href = 'account.html';
-                    } else {
-                        // User is not signed in, redirect to login page
-                        window.location.href = 'login.html';
-                    }
-                });
+        // Check if user is logged in
+        firebase.auth().onAuthStateChanged(user => {
+            document.querySelector('.account-link').addEventListener('click', (e) => {
+                e.preventDefault();
+                if (user) {
+                    // User is signed in, allow access to account page
+                    window.location.href = 'account.html';
+                } else {
+                    // User is not signed in, redirect to login page
+                    window.location.href = 'login.html';
+                }
             });
-        };
+        });
     </script>
 </head>
 <body>
@@ -50,9 +45,9 @@
         </div>
         
         <nav class="menu">
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
             <a href="account.html" class="account-link">Account</a>
         </nav>
     </div>
@@ -73,18 +68,6 @@
                 <p>Detail about feature 3.</p>
             </div>
         </div>
-    </div>
-    <div id="about">
-        <h2>About Us</h2>
-        <p>Information about CareerSync.</p>
-    </div>
-    <div id="services">
-        <h2>Our Services</h2>
-        <p>Details about the services we offer.</p>
-    </div>
-    <div id="contact">
-        <h2>Contact Us</h2>
-        <p>How to get in touch with us.</p>
     </div>
 </body>
 </html>
