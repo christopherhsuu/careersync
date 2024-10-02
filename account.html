@@ -1,1 +1,79 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Details</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Proxima Nova', 'Helvetica', sans-serif;
+            background-color: #ecfbf6;
+            margin: 0;
+            padding: 20px;
+        }
+        .account-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .account-details {
+            text-align: center;
+        }
+        .account-details h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .account-details p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .account-settings {
+            margin-top: 20px;
+        }
+        .account-settings h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .account-settings ul {
+            list-style: none;
+            padding: 0;
+        }
+        .account-settings li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="account-container">
+        <div class="account-details">
+            <img src="img/profile-placeholder.png" alt="Profile Picture" class="profile-picture">
+            <h2>John Doe</h2>
+            <p>Email: johndoe@example.com</p>
+        </div>
+        <div class="account-settings">
+            <h3>Account Settings</h3>
+            <ul>
+                <li>Change Password</li>
+                <li>Update Email</li>
+                <li>Manage Subscriptions</li>
+                <li>Privacy Settings</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

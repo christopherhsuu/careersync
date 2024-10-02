@@ -6,19 +6,16 @@
     <title>Login Page</title>
     <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"></script>
-
-    
-        <script>
+    <script>
         // Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyAtNR8UntbtbCWiG1uoRUXXWzEYxeHnq1o",
-            authDomain: "careersync-8afad.firebaseapp.com",
-            projectId: "careersync-8afad",
-            storageBucket: "careersync-8afad.appspot.com",
-            messagingSenderId: "351099396161",
-            appId: "1:351099396161:web:ca92c325700f949ab7a6c0",
-            measurementId: "G-NV4G79220T"
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID",
+            measurementId: "YOUR_MEASUREMENT_ID"
         };
 
         // Initialize Firebase
@@ -40,13 +37,19 @@
                 });
         }
 
-        // Check if user is logged in
-        firebase.auth().onAuthStateChanged(user => {
-            if (user) {
-                // User is signed in, redirect to homepage
-                window.location.href = 'index.html';
-            }
-        });
+        // Function to handle sign up
+        function signUp() {
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    alert('Sign up successful!');
+                })
+                .catch((error) => {
+                    alert('Error: ' + error.message);
+                });
+        }
     </script>
 </head>
 <body>
@@ -54,6 +57,10 @@
     <input type="email" id="email" placeholder="Email" required>
     <input type="password" id="password" placeholder="Password" required>
     <button onclick="login()">Login</button>
+
+    <h1>Sign Up</h1>
+    <input type="email" id="signup-email" placeholder="Email" required>
+    <input type="password" id="signup-password" placeholder="Password" required>
+    <button onclick="signUp()">Sign Up</button>
 </body>
 </html>
-
