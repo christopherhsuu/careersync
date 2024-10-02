@@ -56,10 +56,62 @@
             border-radius: 5px;
             margin-bottom: 10px;
         }
+        .status-message {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
     </style>
+    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"></script>
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID",
+            measurementId: "YOUR_MEASUREMENT_ID"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        // Check if user is logged in
+        firebase.auth().onAuthStateChanged(user => {
+            const statusMessage = document.getElementById('status-message');
+            if (user) {
+                // User is signed in
+                statusMessage.textContent = `Logged in as ${user.email}`;
+            } else {
+                // User is not signed in, redirect to login page
+                statusMessage.textContent = 'You are not logged in.';
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 3000); // Redirect after 3 seconds
+            }
+        });
+
+        // Function to handle logout
+        function logout() {
+            auth.signOut()
+                .then(() => {
+                    alert('Logout successful!');
+                    window.location.href = 'login.html'; // Redirect to the login page
+                })
+                .catch((error) => {
+                    alert('Error: ' + error.message);
+                });
+        }
+    </script>
 </head>
 <body>
     <div class="account-container">
+        <div id="status-message" class="status-message"></div>
         <div class="account-details">
             <img src="img/profile-placeholder.png" alt="Profile Picture" class="profile-picture">
             <h2>John Doe</h2>
@@ -74,6 +126,7 @@
                 <li>Privacy Settings</li>
             </ul>
         </div>
+        <button onclick="logout()">Logout</button>
     </div>
 </body>
 </html>
