@@ -1,0 +1,35 @@
+body {
+    background-color:#ecfaf8;
+    color: #96b7da;
+    font-size: 21px;
+
+}
+
+p {
+    color: #FFCC00;
+}
+
+h1 {
+    font-size: 70px;
+    color:pink;
+}
+
+div {
+    background: rgb(52, 18, 24);
+    width: 500px;
+    height: 500px;
+}
+
+span {
+    color: yellow;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.top-section {
+    background: rgb(129, 91, 97);
+}
+
+.bot-section {
+    background: rgb(154, 98, 107);
+}
