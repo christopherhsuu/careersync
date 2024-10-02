@@ -1,35 +1,83 @@
+/* Include the Proxima Nova font */
+@import url('https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;700&display=swap');
+
 body {
-    background-color:#ecfaf8;
-    color: #96b7da;
-    font-size: 21px;
-
+    background-color: #ecfbf6;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Proxima Nova', 'Helvetica', sans-serif;
 }
 
-p {
-    color: #FFCC00;
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
 }
 
-h1 {
-    font-size: 70px;
-    color:rgb(0, 0, 0);
+.careersync-logo {
+    width: 100px; /* Adjust the size as needed */
+    height: auto;
 }
 
-div {
-    background: rgb(52, 18, 24);
-    width: 500px;
-    height: 500px;
+.menu {
+    display: flex;
+    gap: 20px;
 }
 
-span {
-    color: yellow;
-    font-size: 40px;
-    font-weight: bold;
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    transition: color 0.3s;
 }
 
-.top-section {
-    background: rgb(129, 91, 97);
+.menu a:hover {
+    color: #007BFF;
 }
 
-.bot-section {
-    background: rgb(154, 98, 107);
+.content {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.content h1 {
+    font-size: 3em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.feature-box {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.feature {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+.feature h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 1em;
+    color: #666;
 }
